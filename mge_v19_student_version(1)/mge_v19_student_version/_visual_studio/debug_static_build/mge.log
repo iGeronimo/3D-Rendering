@@ -1,0 +1,44 @@
+﻿  AbstractBehaviour.cpp
+  CameraBehaviour.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  KeysBehaviour.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  RotatingBehaviour.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  AbstractGame.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\mge\core\AbstractGame.hpp(5,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Camera.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  GameObject.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Light.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Mesh.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\mge\core\Mesh.hpp(5,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Renderer.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\mge\core\Renderer.hpp(4,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  ShaderProgram.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\mge\core\ShaderProgram.hpp(4,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Texture.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\mge\core\Texture.hpp(6,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  World.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  AbstractMaterial.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  ColorMaterial.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  TextureMaterial.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  MGEDemo.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  DebugHud.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\mge\util\DebugHud.cpp(4,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  LightingScene.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  main.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\mge\core\AbstractGame.hpp(5,10): fatal  error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Generating Code...
+  Compiling...
+  TheScene.cpp
+C:\Uni\3Drendering\mge_v19_student_version(1)\mge_v19_student_version\src\glm.hpp(9,10): fatal  error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Generating Code...
