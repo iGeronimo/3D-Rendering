@@ -30,6 +30,8 @@ class TheScene: public AbstractGame
 	private:
 		DebugHud* _hud;                   //hud display
 
+		void _moveScenery();
+
         void _updateHud();
 
 		TheScene(const TheScene&);

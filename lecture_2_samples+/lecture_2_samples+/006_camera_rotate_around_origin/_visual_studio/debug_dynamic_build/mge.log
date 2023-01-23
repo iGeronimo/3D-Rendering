@@ -1,0 +1,17 @@
+﻿  main.cpp
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(177,39): error C2672: 'glm::rotate': no matching overloaded function found
+C:\dev\vcpkg\vcpkg\installed\x86-windows\include\glm\ext\quaternion_transform.hpp(43,26): message : could be 'glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)'
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(177,39): message : 'glm::qua<T,Q> glm::rotate(const glm::qua<T,Q> &,const T &,const glm::vec<3,T,Q> &)': expects 3 arguments - 2 provided
+C:\dev\vcpkg\vcpkg\installed\x86-windows\include\glm\ext\matrix_transform.hpp(80,32): message : or       'glm::mat<4,4,T,Q> glm::rotate(const glm::mat<4,4,T,Q> &,T,const glm::vec<3,T,Q> &)'
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(177,39): message : 'glm::mat<4,4,T,Q> glm::rotate(const glm::mat<4,4,T,Q> &,T,const glm::vec<3,T,Q> &)': expects 3 arguments - 2 provided
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(177,89): error C2672: 'glm::translate': no matching overloaded function found
+C:\dev\vcpkg\vcpkg\installed\x86-windows\include\glm\ext\matrix_transform.hpp(64,32): message : could be 'glm::mat<4,4,T,Q> glm::translate(const glm::mat<4,4,T,Q> &,const glm::vec<3,T,Q> &)'
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(177,89): message : 'glm::mat<4,4,T,Q> glm::translate(const glm::mat<4,4,T,Q> &,const glm::vec<3,T,Q> &)': expects 2 arguments - 1 provided
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(196,38): error C2672: 'glm::scale': no matching overloaded function found
+C:\dev\vcpkg\vcpkg\installed\x86-windows\include\glm\ext\matrix_transform.hpp(95,32): message : could be 'glm::mat<4,4,T,Q> glm::scale(const glm::mat<4,4,T,Q> &,const glm::vec<3,T,Q> &)'
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(196,38): message : 'glm::mat<4,4,T,Q> glm::scale(const glm::mat<4,4,T,Q> &,const glm::vec<3,T,Q> &)': expects 2 arguments - 1 provided
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(201,41): error C2672: 'glm::translate': no matching overloaded function found
+C:\dev\vcpkg\vcpkg\installed\x86-windows\include\glm\ext\matrix_transform.hpp(64,32): message : could be 'glm::mat<4,4,T,Q> glm::translate(const glm::mat<4,4,T,Q> &,const glm::vec<3,T,Q> &)'
+C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\006_camera_rotate_around_origin\src\main.cpp(201,41): message : 'glm::mat<4,4,T,Q> glm::translate(const glm::mat<4,4,T,Q> &,const glm::vec<3,T,Q> &)': expects 2 arguments - 1 provided
+  ShaderUtil.cpp
+  Generating Code...

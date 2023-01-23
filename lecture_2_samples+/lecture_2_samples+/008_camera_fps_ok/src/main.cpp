@@ -172,39 +172,39 @@ int main () {
     GLint vertexIndex = glGetAttribLocation(programID, "vertex");
     GLint colorIndex = glGetAttribLocation(programID, "color");
 
-    glm::mat4 cameraMatrix          (glm::translate (glm::vec3(0,0,5)));
+    glm::mat4 cameraMatrix(glm::translate(glm::mat4(1.f), glm::vec3(0,0,5)));
 
     while (window.isOpen()) {
 
         //translate camera
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
             //notice the -!
-            cameraMatrix = cameraMatrix * glm::translate (glm::vec3(0,0,-0.1f));
+            cameraMatrix = cameraMatrix * glm::translate(glm::mat4(1.f), glm::vec3(0,0,-0.1f));
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-            cameraMatrix = cameraMatrix * glm::translate (glm::vec3(0,0,0.1f)) ;
+            cameraMatrix = cameraMatrix * glm::translate (glm::mat4(1.f), glm::vec3(0,0,0.1f)) ;
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            cameraMatrix = cameraMatrix * glm::translate (glm::vec3(-0.1f,0,0));
+            cameraMatrix = cameraMatrix * glm::translate (glm::mat4(1.f), glm::vec3(-0.1f,0,0));
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            cameraMatrix = cameraMatrix * glm::translate (glm::vec3(0.1f,0,0)) ;
+            cameraMatrix = cameraMatrix * glm::translate (glm::mat4(1.f), glm::vec3(0.1f,0,0)) ;
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-            cameraMatrix = cameraMatrix * glm::translate (glm::vec3(0,0.1f,0)) ;
+            cameraMatrix = cameraMatrix * glm::translate (glm::mat4(1.f), glm::vec3(0,0.1f,0)) ;
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
-            cameraMatrix = cameraMatrix * glm::translate (glm::vec3(0,-0.1f,0)) ;
+            cameraMatrix = cameraMatrix * glm::translate (glm::mat4(1.f), glm::vec3(0,-0.1f,0)) ;
         }
 
         //rotate camera
         glm::vec3 cameraPosition = glm::vec3(cameraMatrix[3]);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             //one way to rotate around the camera world y axis
-            cameraMatrix = glm::rotate (-0.01f, glm::vec3(0,1,0)) * glm::translate(cameraPosition) * glm::translate (-cameraPosition) * cameraMatrix;
+            cameraMatrix = glm::rotate (cameraMatrix, -0.01f, glm::vec3(0,1,0)) * glm::translate(glm::mat4(1.f), cameraPosition) * glm::translate (glm::mat4(1.f), -cameraPosition) * cameraMatrix;
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             //another way to rotate around the center world y axis
             cameraMatrix[3] = glm::vec4(0,0,0,1);
-            cameraMatrix = glm::rotate (-0.01f, glm::vec3(0,1,0)) * cameraMatrix;
+            cameraMatrix = glm::rotate (cameraMatrix, -0.01f, glm::vec3(0,1,0)) * cameraMatrix;
             cameraMatrix[3] = glm::vec4 (cameraPosition,1);
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             //go up
-            cameraMatrix = glm::rotate (0.01f, glm::vec3(1,0,0)) * cameraMatrix;
+            cameraMatrix = glm::rotate (cameraMatrix, 0.01f, glm::vec3(1,0,0)) * cameraMatrix;
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
             //go down using the old way, same as post multiplying this rotation matrix
             cameraMatrix = glm::rotate (cameraMatrix, -0.01f, glm::vec3(1,0,0));
@@ -229,11 +229,11 @@ int main () {
         glBindBuffer (GL_ARRAY_BUFFER, colorBufferId);
 		glVertexAttribPointer(colorIndex,   3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
-        glm::mat4 modelMatrix1 (glm::scale (glm::vec3(3,0.01f,3)));
+        glm::mat4 modelMatrix1 (glm::scale (glm::mat4(1.f), glm::vec3(3,0.01f,3)));
         glUniformMatrix4fv (glGetUniformLocation (programID, "mvpMatrix"), 1, GL_FALSE, glm::value_ptr(vp*modelMatrix1));
         glDrawArrays( GL_TRIANGLES, 0, 36);
 
-        glm::mat4 modelMatrix2    (glm::translate (glm::vec3(0,1,0)));
+        glm::mat4 modelMatrix2    (glm::translate (glm::mat4(1.f), glm::vec3(0,1,0)));
         glUniformMatrix4fv (glGetUniformLocation (programID, "mvpMatrix"), 1, GL_FALSE, glm::value_ptr(vp*modelMatrix2));
         glDrawArrays( GL_TRIANGLES, 0, 36);
 

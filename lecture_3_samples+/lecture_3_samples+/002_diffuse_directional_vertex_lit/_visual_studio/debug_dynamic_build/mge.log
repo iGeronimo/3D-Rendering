@@ -1,1 +1,5 @@
-﻿  mge.vcxproj -> E:\3Drendering\lecture_3_samples+\lecture_3_samples+\002_diffuse_directional_vertex_lit\_visual_studio\debug_dynamic_exe\sample.exe
+﻿  main.cpp
+  Mesh.cpp
+  ShaderUtil.cpp
+  Generating Code...
+  mge.vcxproj -> C:\Uni\3Drendering\3D-Rendering\lecture_3_samples+\lecture_3_samples+\002_diffuse_directional_vertex_lit\_visual_studio\debug_dynamic_exe\sample.exe

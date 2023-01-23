@@ -1,2 +1,2 @@
-PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:VCServicingVersionCrtHeaders=14.29.30136:TargetPlatformVersion=10.0.19041.0:VcpkgTriplet=x86-windows:
-Debug Static|Win32|E:\3Drendering\lecture_2_samples+\lecture_2_samples+\008_camera_fps_ok\_visual_studio\|
+PlatformToolSet=v143:VCToolArchitecture=Native32Bit:VCToolsVersion=14.34.31933:TargetPlatformVersion=10.0.22000.0:VcpkgTriplet=x86-windows:
+Debug Static|Win32|C:\Uni\3Drendering\3D-Rendering\lecture_2_samples+\lecture_2_samples+\008_camera_fps_ok\_visual_studio\|

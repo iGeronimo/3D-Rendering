@@ -1,2 +1,6 @@
 ﻿  main.cpp
-  mge.vcxproj -> E:\3Drendering\lecture_3_samples+\lecture_3_samples+\002_diffuse_directional_vertex_lit\_visual_studio\debug_static_exe\sample.exe
+  Mesh.cpp
+  ShaderUtil.cpp
+  Generating Code...
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: "link.exe" exited with code 1104.
+LINK : fatal error LNK1104: cannot open file 'glew32sd.lib'

@@ -5,6 +5,7 @@
 
 CameraBehaviour::CameraBehaviour(float pHorizontalSpeed, float pVerticalSpeed, GameObject* followPoint, glm::vec3 pOffset) : AbstractBehaviour(), _horizontalSpeed(pHorizontalSpeed), _verticalSpeed(pVerticalSpeed), _followPoint(followPoint), _offset(pOffset)
 {
+	_rMatrix = glm::mat4(1.f);
 }
 
 CameraBehaviour::~CameraBehaviour()
@@ -34,33 +35,49 @@ void CameraBehaviour::orbit(float pStep)
 	glm::vec3 cameraPosition = glm::vec3(cameraMatrix[3]);
 	glm::mat4 tempfollowPoint = cameraMatrix;
 
-
+	//make rotation matrix
+	glm::mat4 frameRotationMatrix(1.f);
+	
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			verticalSpeed = -_verticalSpeed;
-			cameraMatrix = glm::rotate(0.01f * verticalSpeed, glm::vec3(1, 0, 0)) * glm::translate(cameraPosition);
-
+			frameRotationMatrix = glm::rotate(0.1f * verticalSpeed * pStep, glm::vec3(1, 0, 0));
+			_rMatrix *= frameRotationMatrix;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			verticalSpeed = _verticalSpeed;
-			cameraMatrix = glm::rotate(0.01f * verticalSpeed, glm::vec3(1, 0, 0)) * glm::translate(cameraPosition);
-
+			frameRotationMatrix = glm::rotate(0.1f * verticalSpeed * pStep, glm::vec3(1, 0, 0));
+			_rMatrix *= frameRotationMatrix;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 			horizontalSpeed = _horizontalSpeed;
-			cameraMatrix = glm::rotate(0.1f *  horizontalSpeed * pStep, glm::vec3(0, 1, 0)) * glm::translate(cameraPosition) * glm::translate(-cameraPosition) * cameraMatrix;
-
+			glm::mat4 tempMat(_rMatrix);
+			glm::mat4 tempInverseMat = glm::inverse(_rMatrix);
+			tempMat *= tempInverseMat;
+			frameRotationMatrix = glm::rotate(0.1f * horizontalSpeed * pStep, (glm::vec3(0, 1, 0)));
+			tempMat *= frameRotationMatrix;
+			tempMat *= _rMatrix;
+			_rMatrix = tempMat;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 			horizontalSpeed = -_horizontalSpeed;
-			cameraMatrix = glm::rotate(0.1f * horizontalSpeed * pStep, glm::vec3(0, 1, 0)) * glm::translate(cameraPosition) * glm::translate(-cameraPosition) * cameraMatrix;
+			glm::mat4 tempMat(_rMatrix);
+			glm::mat4 tempInverseMat = glm::inverse(_rMatrix);
+			tempMat *= tempInverseMat;
+			frameRotationMatrix = glm::rotate(0.1f * horizontalSpeed * pStep, glm::vec3(0, 1, 0));
+			tempMat *= frameRotationMatrix;
+			tempMat *= _rMatrix;
+			_rMatrix = tempMat;
 		}
-		// reset ofset for following 
-
+		// reset offset for following 
 	}
-		//_owner->setLocalPosition(followPoint + offset);
+
+	
+	glm::mat4 tempMat(_rMatrix);
+	tempMat = glm::translate(tempMat, offset);
+	cameraMatrix = followPoint * tempMat;
 
 	//translate the object in its own local space
 	//_owner->translate(glm::vec3(0.0f, 0.0f, moveSpeed * pStep));
@@ -72,9 +89,6 @@ void CameraBehaviour::orbit(float pStep)
 	//transform[3] += transform[2] * moveSpeed*pStep;
 	//_owner->setTransform(transform);
 
-
-	//glm::mat4 cameraMatrixH = glm::inverse(glm::translate(_owner->getLocalPosition())) * glm::rotate(horizontalSpeed * pStep, glm::vec3(0, 1, 0)) * glm::translate(_owner->getLocalPosition());
-	//cameraMatrix = glm::rotate(horizontalSpeed * pStep, glm::vec3(0, 1, 0)) * glm::translate(cameraPosition) * glm::translate(-cameraPosition) * cameraMatrix;
 	
 	/*
 	
@@ -83,17 +97,8 @@ void CameraBehaviour::orbit(float pStep)
 	cameraMatrix[3] = glm::vec4(cameraPosition, 1);
 	
 	*/
-	
-	//glm::mat4 cameraMatrixV = glm::rotate(verticalSpeed * pStep, glm::vec3(1, 0, 0)) * glm::translate(_owner->getLocalPosition());
-	//glm::angle
-	//std::cout << (cameraMatrix[3]);
-	//std::cout << (followPoint[3]);
-	//if (tempCameraMatrix != cameraMatrix)
-	//{
-	//	cameraMatrix[3] = cameraMatrix[3] + followPoint[3];
-	//}
-	std::cout << (glm::vec3(cameraMatrix[3]) - glm::vec3(offset));
-	std::cout << (glm::vec3(followPoint[3]));
+	std::cout << (glm::vec3(cameraMatrix[3]) - glm::vec3(offset)) << std::endl;
+	std::cout << (glm::vec3(followPoint[3])) << std::endl;
 
 	_owner->setTransform(cameraMatrix);  //times vertex
 	//std::cout << (cameraMatrix[3]);

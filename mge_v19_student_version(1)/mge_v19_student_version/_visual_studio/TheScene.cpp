@@ -55,9 +55,9 @@ void TheScene::_initializeScene()
     //load a bunch of meshes we will be using throughout this demo
     //each mesh only has to be loaded once, but can be used multiple times:
     //F is flat shaded, S is smooth shaded (normals aligned or not), check the models folder!
-    //Mesh* planeMeshDefault = Mesh::load(config::MGE_MODEL_PATH + "plane.obj");
-    //Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
-    Mesh* sphereMeshS = Mesh::load(config::MGE_MODEL_PATH + "sphere_flat.obj");
+    Mesh* planeMeshDefault = Mesh::load(config::MGE_MODEL_PATH + "plane.obj");
+    Mesh* cubeMeshF = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
+    Mesh* sphereMeshF = Mesh::load(config::MGE_MODEL_PATH + "sphere_flat.obj");
     Mesh* smallTeapotMeshS = Mesh::load(config::MGE_MODEL_PATH + "teapot_smooth.obj");
 
     //MATERIALS
@@ -80,23 +80,26 @@ void TheScene::_initializeScene()
     Camera* camera = new Camera("camera", cameraOffset);
     _world->setMainCamera(camera);
     _world->add(camera);
+
+    GameObject* scenery = new GameObject("scenery", glm::vec3(0, 0, 0));
+    scenery->setBehaviour(new KeysBehaviour());
+    _world->add(scenery);
    
     //add the floor
-    /*
+    
     GameObject* plane = new GameObject("plane", glm::vec3(0, 0, 0));
     plane->scale(glm::vec3(5, 5, 5));
     plane->setMesh(planeMeshDefault);
     plane->setMaterial(runicStoneMaterial);
-    _world->add(plane);
-    */
+    scenery->add(plane);
+    
 
     //add a spinning sphere
-    GameObject* sphere = new GameObject("sphere", glm::vec3(0, 0, 0));
-    sphere->scale(glm::vec3(2.5, 2.5, 2.5));
-    sphere->setMesh(sphereMeshS);
+    GameObject* sphere = new GameObject("sphere", glm::vec3(0, 2, 0));
+    sphere->scale(glm::vec3(.5f, .5f, .5f));
+    sphere->setMesh(sphereMeshF);
     sphere->setMaterial(hollowKnightMaterial);
-    sphere->setBehaviour(new KeysBehaviour());
-    _world->add(sphere);
+    scenery->add(sphere);
 
 
     GameObject* smallTeapotYep = new GameObject("smallTeapotYep", glm::vec3(2, 1, 0));
@@ -104,25 +107,31 @@ void TheScene::_initializeScene()
     smallTeapotYep->setMesh(smallTeapotMeshS);
     smallTeapotYep->setMaterial(yepCOCKMaterial);
     smallTeapotYep->setBehaviour(new RotatingBehaviour());
-    _world->add(smallTeapotYep);
+    scenery->add(smallTeapotYep);
 
     GameObject* smallTeapotYellow = new GameObject("smallTeapotYellow", glm::vec3(0, 1.5, 0));
     smallTeapotYellow->scale(glm::vec3(0.2, 0.2, 0.2));
     smallTeapotYellow->setMesh(smallTeapotMeshS);
     smallTeapotYellow->setMaterial(yellowMaterial);
     smallTeapotYellow->setBehaviour(new RotatingBehaviour());
-    _world->add(smallTeapotYellow);
+    scenery->add(smallTeapotYellow);
 
     GameObject* smallTeapotBlu = new GameObject("smallTeapotBlue", glm::vec3(-2, 1, 0));
     smallTeapotBlu->scale(glm::vec3(0.2, 0.2, 0.2));
     smallTeapotBlu->setMesh(smallTeapotMeshS);
     smallTeapotBlu->setMaterial(blueMaterial);
     smallTeapotBlu->setBehaviour(new RotatingBehaviour());
-    smallTeapotBlu->setParent(sphere);
+    scenery->add(smallTeapotBlu);
 
+
+    GameObject* backGroundCube = new GameObject("backGroundCube", glm::vec3(0, 0, -150));
+    backGroundCube->setMesh(cubeMeshF);
+    backGroundCube->setMaterial(dreamShieldMaterial);
+    backGroundCube->scale(glm::vec3(50, 50, 50));
+    _world->add(backGroundCube);
 
     //camera->rotate(glm::radians(-40.0f), glm::vec3(1, 0, 0));
-    camera->setBehaviour(new CameraBehaviour(10, 10, sphere, cameraOffset));
+    camera->setBehaviour(new CameraBehaviour(10, 10, scenery, cameraOffset));
 
 
 
@@ -131,7 +140,7 @@ void TheScene::_initializeScene()
     //Note how the texture material is able to detect the number of lights in the scene
     //even though it doesn't implement any lighting yet!
 
-   /*
+    /*
     Light* light = new Light("light", glm::vec3(0, 4, 0));
     light->scale(glm::vec3(0.1f, 0.1f, 0.1f));
     light->setMesh(cubeMeshF);
@@ -147,6 +156,11 @@ void TheScene::_initializeScene()
 void TheScene::_render() {
     AbstractGame::_render();
     _updateHud();
+    _moveScenery();
+}
+
+void TheScene::_moveScenery() {
+
 }
 
 void TheScene::_updateHud() {

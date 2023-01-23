@@ -78,13 +78,13 @@ int main () {
 
     while (window.isOpen()) {
         sf::Vector2u windowSize = window.getSize();
-        glm::mat4 modelMatrix       = glm::rotate (clock()/1000.0f, glm::vec3(0.7,0.7,0.7));
-        glm::mat4 cameraMatrix      = glm::translate (glm::vec3(0,0,5));
+        glm::mat4 modelMatrix       = glm::rotate (modelMatrix, clock()/1000.0f, glm::vec3(0.7,0.7,0.7));
+        glm::mat4 cameraMatrix      = glm::translate (cameraMatrix, glm::vec3(0,0,5));
         glm::mat4 projectionMatrix  = glm::perspective (glm::radians(60.0f), windowSize.x / (float)windowSize.y, 0.1f, 1000.0f);
 
         glm::mat4 mvp = projectionMatrix * glm::inverse(cameraMatrix) * modelMatrix;
 
-        //glm::vec3 ambientLightColor = glm::vec3(0, 1, 1) * abs(sin (clock()/100.0f));
+        glm::vec3 ambientLightColor = glm::vec3(0, 1, 1) * abs(sin (clock()/100.0f));
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 

@@ -82,7 +82,7 @@ int main () {
 
     while (window.isOpen()) {
         sf::Vector2u windowSize = window.getSize();
-        glm::mat4 modelMatrix = glm::translate (glm::vec3(0,0,-5)) * glm::rotate (clock()/1000.0f, glm::vec3(0.7,0.7,0.7));
+        glm::mat4 modelMatrix = glm::translate (modelMatrix, glm::vec3(0,0,-5)) * glm::rotate (modelMatrix, clock()/1000.0f, glm::vec3(0.7,0.7,0.7));
         glm::mat4 cameraMatrix = glm::mat4(1.0f);
         glm::mat4 projectionMatrix = glm::perspective (glm::radians(60.0f), windowSize.x / (float)windowSize.y, 0.1f, 1000.0f);
 

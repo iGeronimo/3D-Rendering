@@ -1,2 +1,2 @@
-﻿  main.cpp
-  mge.vcxproj -> E:\3Drendering\lecture_3_samples+\lecture_3_samples+\001_ambient_light\_visual_studio\debug_static_exe\sample.exe
+﻿  Mesh.cpp
+LINK : fatal error LNK1104: cannot open file 'glew32sd.lib'

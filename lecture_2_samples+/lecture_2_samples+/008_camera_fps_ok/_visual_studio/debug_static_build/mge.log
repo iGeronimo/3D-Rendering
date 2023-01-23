@@ -1,2 +1,3 @@
 ﻿  main.cpp
-  mge.vcxproj -> E:\3Drendering\lecture_2_samples+\lecture_2_samples+\008_camera_fps_ok\_visual_studio\debug_static_exe\sample.exe
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: "link.exe" exited with code 1104.
+LINK : fatal error LNK1104: cannot open file 'glew32sd.lib'
