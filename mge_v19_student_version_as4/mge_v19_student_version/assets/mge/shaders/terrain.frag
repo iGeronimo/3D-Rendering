@@ -33,7 +33,7 @@ void main( void ) {
 	vec3 lightToPosDirVec = normalize(vs_position - lightPos0);
 	vec3 reflectDirVec = normalize(reflect(lightToPosDirVec, normalize(vs_normal)));
 	vec3 posToViewDirVec = normalize(vec3(cameraPos - vs_position));
-	float specularConstant = pow(max(dot(posToViewDirVec, reflectDirVec), 0), 100);
+	float specularConstant = pow(max(dot(posToViewDirVec, reflectDirVec), 0), 1);
 	vec3 specularFinal = vec3(1.f, 1.f, 1.f) * specularConstant;
 
 	//Attenuation
@@ -49,6 +49,5 @@ void main( void ) {
 	//fragment_color = texture(splatMap, texCoord);
 	fragment_color = (diffuse1 * splatMapTexture.r) + (diffuse2 * splatMapTexture.g) + (diffuse3 * splatMapTexture.b) + (diffuse4 * splatMapTexture.a);
 	fragment_color *= (vec4(directionalFinal, 1.f) + vec4(diffuseFinal,1.f) + vec4(specularFinal, 1.f));
-	fragment_color = vec4(vs_normal,1.f);
 
 }

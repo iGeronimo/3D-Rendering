@@ -41,10 +41,10 @@ void main( void ){
     vertexUp.z += stepConstant;
     vertexUp.y = ((colorUp.x + colorUp.y + colorUp.z) / 3.f) * heightConstant;
 
-    // vertexLeft *= mat3(modelMatrix);
-    // vertexRight *= mat3(modelMatrix);
-    // vertexUp *= mat3(modelMatrix);
-    // vertexDown *= mat3(modelMatrix);
+    //vertexLeft *= mat3(modelMatrix);
+    //vertexRight *= mat3(modelMatrix);
+    //vertexUp *= mat3(modelMatrix);
+    //vertexDown *= mat3(modelMatrix);
 
     vec3 vToCross = vertexDown - vertexUp;
     vec3 hToCross = vertexRight - vertexLeft;
@@ -52,7 +52,7 @@ void main( void ){
     _vertex.y =  ((color.x + color.y + color.z) / 3.f) * heightConstant;
     vs_position = vec4(modelMatrix * vec4(_vertex, 1.f)).xyz;
 	texCoord = uv;
-    vs_normal = normalize(mat3(modelMatrix) * (cross(hToCross, vToCross)));
+    vs_normal = normalize(mat3(modelMatrix) * (cross(normalize(hToCross), normalize(vToCross))));
 
     gl_Position = mvpMatrix * vec4(_vertex, 1.f);
 }
